@@ -319,6 +319,7 @@ textarea:focus-visible {
   display: flex;
   gap: var(--space-2);
   align-items: center;
+  justify-content: flex-end;
 }
 
 .social-link {
@@ -338,6 +339,11 @@ textarea:focus-visible {
     inset 0 -8px 14px rgba(0, 0, 0, 0.55),
     0 0 10px rgba(79, 138, 111, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.social-mark {
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
 .social-link svg {

@@ -239,21 +239,15 @@ const getTranslation = (lang, key) => {
 
 const applyTranslations = (lang) => {
   document.querySelectorAll("[data-i18n]").forEach((element) => {
-    if (element.hasAttribute("data-i18n-attr")) {
-      return;
-    }
+    if (element.hasAttribute("data-i18n-attr")) return;
     const key = element.dataset.i18n;
-    if (key) {
-      element.textContent = getTranslation(lang, key);
-    }
+    if (key) element.textContent = getTranslation(lang, key);
   });
 
   document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
     const key = element.dataset.i18n;
     const attr = element.dataset.i18nAttr;
-    if (key && attr) {
-      element.setAttribute(attr, getTranslation(lang, key));
-    }
+    if (key && attr) element.setAttribute(attr, getTranslation(lang, key));
   });
 };
 
