@@ -340,22 +340,10 @@ const applyTranslations = (lang) => {
   });
 };
 
-const updateGiscusLanguage = (lang) => {
-  const iframe = document.querySelector("iframe.giscus-frame");
-  if (!iframe) {
-    return;
-  }
-  iframe.contentWindow?.postMessage(
-    { giscus: { setConfig: { lang } } },
-    "https://giscus.app"
-  );
-};
-
 const setLanguage = (lang) => {
   document.documentElement.lang = lang;
   localStorage.setItem("preferredLanguage", lang);
   applyTranslations(lang);
-  updateGiscusLanguage(lang);
 };
 
 const getPreferredLanguage = () => {
@@ -423,29 +411,6 @@ const initForms = () => {
   });
 };
 
-const mountGiscus = () => {
-  const mount = document.getElementById("giscus-mount");
-  if (!mount) {
-    return;
-  }
-
-  const script = document.createElement("script");
-  script.src = "https://giscus.app/client.js";
-  script.setAttribute("data-repo", "your-org/your-repo");
-  script.setAttribute("data-repo-id", "your-repo-id");
-  script.setAttribute("data-category", "General");
-  script.setAttribute("data-category-id", "your-category-id");
-  script.setAttribute("data-mapping", "pathname");
-  script.setAttribute("data-reactions-enabled", "1");
-  script.setAttribute("data-input-position", "top");
-  script.setAttribute("data-theme", "light");
-  script.setAttribute("data-lang", document.documentElement.lang || "lt");
-  script.setAttribute("data-loading", "lazy");
-  script.crossOrigin = "anonymous";
-  script.async = true;
-  mount.appendChild(script);
-};
-
 const injectLayout = () => {
   const headerTarget = document.getElementById("site-header");
   if (headerTarget) {
@@ -462,5 +427,4 @@ document.addEventListener("DOMContentLoaded", () => {
   injectLayout();
   initLanguage();
   initForms();
-  mountGiscus();
 });
