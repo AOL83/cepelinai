@@ -341,15 +341,11 @@ textarea:focus-visible {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.social-mark {
-  font-size: 0.8rem;
-  line-height: 1;
-}
-
 .social-link svg {
   width: 19px;
   height: 19px;
   display: block;
+  fill: currentColor;
 }
 
 .social-link:hover,
