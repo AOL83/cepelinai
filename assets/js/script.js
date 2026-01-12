@@ -18,13 +18,9 @@ const translations = {
     footer_line: "I’m grateful for every kind message and every shared lead.",
     footer_copyright: "© 2026 cepelinai. Built with care.",
     social_ig_label: "Instagram",
-    social_ig_text: "IG",
     social_fb_label: "Facebook",
-    social_fb_text: "F",
     social_yt_label: "YouTube",
-    social_yt_text: "YT",
     social_in_label: "LinkedIn",
-    social_in_text: "IN",
     hero_title: "A slow, hopeful build",
     hero_sentence:
       "This is my journal on the process of purchasing land and building a homestead home, hoping to mix the right ingredients to make something beautiful.",
@@ -131,13 +127,9 @@ const translations = {
     footer_line: "Esu dėkingas už kiekvieną gerą žinutę ir pasidalintą užuominą.",
     footer_copyright: "© 2026 cepelinai. Sukurta su rūpesčiu.",
     social_ig_label: "Instagram",
-    social_ig_text: "IG",
     social_fb_label: "Facebook",
-    social_fb_text: "F",
     social_yt_label: "YouTube",
-    social_yt_text: "YT",
     social_in_label: "LinkedIn",
-    social_in_text: "IN",
     hero_title: "Lėtas, viltingas kūrimas",
     hero_sentence:
       "Tai mano dienoraštis apie žemės pirkimą ir sodybos namų kūrimą, tikintis sumaišyti tinkamus ingredientus, kad gimtų kažkas gražaus.",
@@ -252,13 +244,17 @@ const applyTranslations = (lang) => {
 
 const updateGiscusLanguage = (lang) => {
   const iframe = document.querySelector("iframe.giscus-frame");
-  if (!iframe) {
+  if (iframe) {
+    iframe.contentWindow?.postMessage(
+      { giscus: { setConfig: { lang } } },
+      "https://giscus.app"
+    );
     return;
   }
-  iframe.contentWindow?.postMessage(
-    { giscus: { setConfig: { lang } } },
-    "https://giscus.app"
-  );
+  const giscusScript = document.querySelector("script[data-repo][data-category]");
+  if (giscusScript) {
+    giscusScript.setAttribute("data-lang", lang);
+  }
 };
 
 const setLanguage = (lang) => {
@@ -332,7 +328,23 @@ const initForms = () => {
   });
 };
 
+const observeGiscus = () => {
+  const container = document.querySelector(".giscus-shell");
+  if (!container || !window.MutationObserver) {
+    return;
+  }
+  const observer = new MutationObserver(() => {
+    const iframe = container.querySelector("iframe.giscus-frame");
+    if (iframe) {
+      updateGiscusLanguage(document.documentElement.lang || "lt");
+      observer.disconnect();
+    }
+  });
+  observer.observe(container, { childList: true, subtree: true });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   initLanguage();
   initForms();
+  observeGiscus();
 });
