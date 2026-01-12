@@ -42,7 +42,7 @@ body {
 }
 
 main {
-  flex: 1;
+  flex: 1 0 auto;
   padding: var(--space-6) var(--space-4) var(--space-8);
 }
 
@@ -99,6 +99,11 @@ textarea:focus-visible {
   backdrop-filter: blur(10px);
   background: rgba(246, 242, 237, 0.92);
   border-bottom: 1px solid var(--border);
+}
+
+#site-header,
+#site-footer {
+  flex: 0 0 auto;
 }
 
 .header-inner {
@@ -315,21 +320,21 @@ textarea:focus-visible {
   color: rgba(244, 239, 233, 0.82);
 }
 
-.social-links {
+.social-bubbles {
   display: flex;
   gap: var(--space-2);
   align-items: center;
   justify-content: flex-end;
 }
 
-.social-link {
+.social-bubble {
   width: 38px;
   height: 38px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(200, 200, 200, 0.18);
+  border: 1px solid rgba(79, 138, 111, 0.35);
   color: #d9efe5;
   background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 45%),
@@ -341,25 +346,25 @@ textarea:focus-visible {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.social-link svg {
-  width: 19px;
-  height: 19px;
+.social-bubble svg {
+  width: 18px;
+  height: 18px;
   display: block;
   fill: currentColor;
 }
 
-.social-link:hover,
-.social-link:focus-visible {
+.social-bubble:hover,
+.social-bubble:focus-visible {
   transform: scale(1.06);
 }
 
-.social-link:focus-visible {
+.social-bubble:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
-.social-link.ig:hover,
-.social-link.ig:focus-visible {
+.social-bubble.is-instagram:hover,
+.social-bubble.is-instagram:focus-visible {
   border-color: #e1306c;
   color: #e1306c;
   box-shadow:
@@ -368,8 +373,8 @@ textarea:focus-visible {
     0 0 12px rgba(225, 48, 108, 0.6);
 }
 
-.social-link.fb:hover,
-.social-link.fb:focus-visible {
+.social-bubble.is-facebook:hover,
+.social-bubble.is-facebook:focus-visible {
   border-color: #1877f2;
   color: #1877f2;
   box-shadow:
@@ -378,8 +383,8 @@ textarea:focus-visible {
     0 0 12px rgba(24, 119, 242, 0.6);
 }
 
-.social-link.yt:hover,
-.social-link.yt:focus-visible {
+.social-bubble.is-youtube:hover,
+.social-bubble.is-youtube:focus-visible {
   border-color: #ff0000;
   color: #ff0000;
   box-shadow:
@@ -388,8 +393,8 @@ textarea:focus-visible {
     0 0 12px rgba(255, 0, 0, 0.6);
 }
 
-.social-link.in:hover,
-.social-link.in:focus-visible {
+.social-bubble.is-linkedin:hover,
+.social-bubble.is-linkedin:focus-visible {
   border-color: #0a66c2;
   color: #0a66c2;
   box-shadow:
@@ -443,7 +448,7 @@ textarea:focus-visible {
     align-items: center;
   }
 
-  .social-link {
+  .social-bubble {
     width: 40px;
     height: 40px;
   }

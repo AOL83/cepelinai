@@ -13,7 +13,7 @@ const translations = {
     title_code: "cepelinai | Code",
     title_contact: "cepelinai | Contact",
     title_404: "cepelinai | 404",
-    toggle_label: "LT / EN",
+    lang_toggle_label: "Toggle language",
     footer_title: "Thank you for being here",
     footer_line: "I’m grateful for every kind message and every shared lead.",
     footer_copyright: "© 2026 cepelinai. Built with care.",
@@ -122,7 +122,7 @@ const translations = {
     title_code: "cepelinai | Kodas",
     title_contact: "cepelinai | Kontaktai",
     title_404: "cepelinai | Puslapis nerastas",
-    toggle_label: "LT / EN",
+    lang_toggle_label: "Perjungti kalbą",
     footer_title: "Ačiū, kad esi čia",
     footer_line: "Esu dėkingas už kiekvieną gerą žinutę ir pasidalintą užuominą.",
     footer_copyright: "© 2026 cepelinai. Sukurta su rūpesčiu.",
@@ -219,6 +219,98 @@ const translations = {
   }
 };
 
+const renderHeader = () => `
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="./index.html" aria-label="cepelinai" data-i18n="wordmark">cepelinai</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="./index.html" data-i18n="nav_home">Home</a>
+        <a href="./about.html" data-i18n="nav_about">About</a>
+        <a href="./wall.html" data-i18n="nav_wall">Wall</a>
+        <a href="./code.html" data-i18n="nav_code">Code</a>
+        <a href="./contact.html" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <button
+        class="language-toggle"
+        id="lang-toggle"
+        type="button"
+        data-i18n="lang_toggle_label"
+        data-i18n-attr="aria-label"
+      >
+        LT / EN
+      </button>
+    </div>
+  </header>
+`;
+
+const renderFooter = () => `
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-note">
+          <h3 data-i18n="footer_title">Thank you for being here</h3>
+          <p data-i18n="footer_line">I’m grateful for every kind message and every shared lead.</p>
+        </div>
+        <div class="social-bubbles" aria-label="Social links">
+          <a
+            class="social-bubble is-instagram"
+            href="#"
+            data-i18n="social_ig_label"
+            data-i18n-attr="aria-label"
+            aria-label="Instagram"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+              <path
+                d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.5-2.75a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+              />
+            </svg>
+          </a>
+          <a
+            class="social-bubble is-facebook"
+            href="#"
+            data-i18n="social_fb_label"
+            data-i18n-attr="aria-label"
+            aria-label="Facebook"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+              <path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a
+            class="social-bubble is-youtube"
+            href="#"
+            data-i18n="social_yt_label"
+            data-i18n-attr="aria-label"
+            aria-label="YouTube"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+              <path
+                d="M21.8 8.001a3 3 0 0 0-2.12-2.12C17.9 5.5 12 5.5 12 5.5s-5.9 0-7.68.38A3 3 0 0 0 2.2 8c-.38 1.78-.38 5.5-.38 5.5s0 3.72.38 5.5a3 3 0 0 0 2.12 2.12c1.78.38 7.68.38 7.68.38s5.9 0 7.68-.38a3 3 0 0 0 2.12-2.12c.38-1.78.38-5.5.38-5.5s0-3.72-.38-5.5zM10 16.5v-7l6 3.5-6 3.5z"
+              />
+            </svg>
+          </a>
+          <a
+            class="social-bubble is-linkedin"
+            href="#"
+            data-i18n="social_in_label"
+            data-i18n-attr="aria-label"
+            aria-label="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+              <path
+                d="M6 9h3v9H6zM7.5 3.5a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zM11 9h2.9v1.3h.04c.4-.75 1.4-1.55 2.88-1.55 3.08 0 3.65 2.03 3.65 4.67V18h-3v-4.1c0-.98-.02-2.24-1.37-2.24-1.37 0-1.58 1.07-1.58 2.17V18h-3z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom" data-i18n="footer_copyright">
+        © 2026 cepelinai. Built with care.
+      </div>
+    </div>
+  </footer>
+`;
+
 const getTranslation = (lang, key) => {
   if (translations[lang] && translations[lang][key]) {
     return translations[lang][key];
@@ -230,31 +322,33 @@ const getTranslation = (lang, key) => {
 };
 
 const applyTranslations = (lang) => {
-  document.querySelectorAll("[data-i18n]:not([data-i18n-attr])").forEach((element) => {
-    const key = element.dataset.i18n;
-    if (key) element.textContent = getTranslation(lang, key);
-  });
+  document
+    .querySelectorAll("[data-i18n]:not([data-i18n-attr])")
+    .forEach((element) => {
+      const key = element.dataset.i18n;
+      if (key) {
+        element.textContent = getTranslation(lang, key);
+      }
+    });
 
   document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
     const key = element.dataset.i18n;
     const attr = element.dataset.i18nAttr;
-    if (key && attr) element.setAttribute(attr, getTranslation(lang, key));
+    if (key && attr) {
+      element.setAttribute(attr, getTranslation(lang, key));
+    }
   });
 };
 
 const updateGiscusLanguage = (lang) => {
   const iframe = document.querySelector("iframe.giscus-frame");
-  if (iframe) {
-    iframe.contentWindow?.postMessage(
-      { giscus: { setConfig: { lang } } },
-      "https://giscus.app"
-    );
+  if (!iframe) {
     return;
   }
-  const giscusScript = document.querySelector("script[data-repo][data-category]");
-  if (giscusScript) {
-    giscusScript.setAttribute("data-lang", lang);
-  }
+  iframe.contentWindow?.postMessage(
+    { giscus: { setConfig: { lang } } },
+    "https://giscus.app"
+  );
 };
 
 const setLanguage = (lang) => {
@@ -264,16 +358,19 @@ const setLanguage = (lang) => {
   updateGiscusLanguage(lang);
 };
 
-const initLanguage = () => {
+const getPreferredLanguage = () => {
   const stored = localStorage.getItem("preferredLanguage");
-  const startingLang = stored === "en" || stored === "lt" ? stored : "lt";
+  return stored === "en" || stored === "lt" ? stored : "lt";
+};
+
+const initLanguage = () => {
+  const startingLang = getPreferredLanguage();
   setLanguage(startingLang);
 
-  const toggle = document.querySelector(".language-toggle");
+  const toggle = document.getElementById("lang-toggle");
   if (toggle) {
     toggle.addEventListener("click", () => {
-      const nextLang =
-        document.documentElement.lang === "lt" ? "en" : "lt";
+      const nextLang = document.documentElement.lang === "lt" ? "en" : "lt";
       setLanguage(nextLang);
     });
   }
@@ -314,10 +411,8 @@ const initForms = () => {
             status.textContent = getTranslation(lang, "form_success");
           }
           form.reset();
-        } else {
-          if (status) {
-            status.textContent = getTranslation(lang, "form_error");
-          }
+        } else if (status) {
+          status.textContent = getTranslation(lang, "form_error");
         }
       } catch (error) {
         if (status) {
@@ -328,23 +423,44 @@ const initForms = () => {
   });
 };
 
-const observeGiscus = () => {
-  const container = document.querySelector(".giscus-shell");
-  if (!container || !window.MutationObserver) {
+const mountGiscus = () => {
+  const mount = document.getElementById("giscus-mount");
+  if (!mount) {
     return;
   }
-  const observer = new MutationObserver(() => {
-    const iframe = container.querySelector("iframe.giscus-frame");
-    if (iframe) {
-      updateGiscusLanguage(document.documentElement.lang || "lt");
-      observer.disconnect();
-    }
-  });
-  observer.observe(container, { childList: true, subtree: true });
+
+  const script = document.createElement("script");
+  script.src = "https://giscus.app/client.js";
+  script.setAttribute("data-repo", "your-org/your-repo");
+  script.setAttribute("data-repo-id", "your-repo-id");
+  script.setAttribute("data-category", "General");
+  script.setAttribute("data-category-id", "your-category-id");
+  script.setAttribute("data-mapping", "pathname");
+  script.setAttribute("data-reactions-enabled", "1");
+  script.setAttribute("data-input-position", "top");
+  script.setAttribute("data-theme", "light");
+  script.setAttribute("data-lang", document.documentElement.lang || "lt");
+  script.setAttribute("data-loading", "lazy");
+  script.crossOrigin = "anonymous";
+  script.async = true;
+  mount.appendChild(script);
+};
+
+const injectLayout = () => {
+  const headerTarget = document.getElementById("site-header");
+  if (headerTarget) {
+    headerTarget.innerHTML = renderHeader();
+  }
+
+  const footerTarget = document.getElementById("site-footer");
+  if (footerTarget) {
+    footerTarget.innerHTML = renderFooter();
+  }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  injectLayout();
   initLanguage();
   initForms();
-  observeGiscus();
+  mountGiscus();
 });
