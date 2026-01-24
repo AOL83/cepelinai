@@ -219,6 +219,45 @@ textarea:focus-visible {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
 }
 
+.transmission .transmission-panel {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: 16px;
+  border: 1px solid #19d719;
+  background: #000;
+  color: #00ff6a;
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 0 0 24px rgba(0, 255, 106, 0.45);
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.transmission .transmission-title {
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  text-align: center;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  text-shadow: 0 0 8px rgba(0, 255, 106, 0.7);
+}
+
+.transmission .transmission-panel p {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+}
+
+.transmission .transmission-signoff {
+  text-shadow: 0 0 8px rgba(0, 255, 106, 0.7);
+  margin-bottom: var(--space-2);
+}
+
+.transmission .transmission-footer {
+  margin-bottom: 0;
+  text-align: center;
+  color: rgba(0, 255, 106, 0.65);
+  font-size: 0.95em;
+}
+
 .card-grid {
   display: grid;
   gap: var(--space-4);
