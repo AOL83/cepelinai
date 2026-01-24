@@ -1,246 +1,87 @@
 <!DOCTYPE html>
-<html lang="lt">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title data-i18n="title_about">cepelinai | About</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Transmission</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        background-color: #000;
+        color: #0f0;
+        font-family: "Courier New", Courier, monospace;
+        line-height: 1.6;
+        font-size: 1.1rem;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        border: 1px solid #0f0;
+        padding: 2rem;
+        background-color: #010101;
+        box-shadow: 0 0 20px #0f0;
+      }
+      .glow {
+        text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+      }
+      h1 {
+        color: #0f0;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .footer {
+        margin-top: 3rem;
+        font-size: 0.9rem;
+        color: #080;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <a class="skip-link" href="#main" data-i18n="skip_link">Skip to content</a>
-    <div id="site-header"></div>
-
-    <main id="main">
-      <div class="container">
-        <h1 class="page-title" data-i18n="about_title">About Terence</h1>
-        <p data-i18n="about_intro_one">
-          My name is Terence. I’m from London, England. I’m a full stack software developer.
-        </p>
-        <p data-i18n="about_intro_two">
-          I’m relocating to Lithuania to buy land and build a homestead — my own bit of paradise — and I want to do it with patience and respect.
-        </p>
-        <p data-i18n="about_intro_three">
-          I hope to be a good neighbour, listen first, and learn the rhythms of the communities I’m joining.
-        </p>
-
-        <section class="section">
-          <div class="card-grid">
-            <article class="card">
-              <h3 data-i18n="about_card_one_title">Who I am</h3>
-              <p data-i18n="about_card_one_body">
-                A maker, listener, and builder at heart, with a love for calm mornings and steady progress.
-              </p>
-            </article>
-            <article class="card">
-              <h3 data-i18n="about_card_two_title">Where I am now</h3>
-              <p data-i18n="about_card_two_body">
-                London, England — a city I’m grateful for, even as I look toward quieter soil.
-              </p>
-            </article>
-            <article class="card">
-              <h3 data-i18n="about_card_three_title">Where I hope to move</h3>
-              <p data-i18n="about_card_three_body">
-                Lithuania — somewhere with space to grow food, build a home, and belong.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2>Selected Highlights</h2>
-
-          <article class="card">
-            <ul>
-              <li>
-                Designed and implemented Harness, a modular, safety-first robotics control platform with formal state
-                machines (SAFE_IDLE, ARMED, ESTOP), command aging, watchdogs, and authority arbitration between operator
-                and autonomous sources.
-              </li>
-              <li>
-                Built a networked real-time control system using WebSockets and structured JSON protocols, including
-                heartbeat monitoring, connection lifecycle management, and replayable command streams for post-mortem
-                analysis.
-              </li>
-              <li>
-                Implemented fail-safe defaults and kill-path logic inspired by industrial and robotics safety
-                architectures, ensuring that loss of input, stale commands, or subsystem failure always degrade to safe
-                states.
-              </li>
-              <li>
-                Designed a human-centered command language and input abstraction layer (CLI, joystick-style input,
-                replay), reducing operator cognitive load and preventing dangerous low-level actuation commands.
-              </li>
-              <li>
-                Developed a clean, modular architecture with strict separation between intent, authority, and actuation,
-                enabling future hardware, autonomy, and ROS-style integration without rewriting core logic.
-              </li>
-              <li>
-                Applied structured logging and telemetry thinking to make system behavior observable, diagnosable, and
-                auditable under fault conditions.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Replicator AI Terminal — Full-Stack Systems Debugging &amp; Product Architecture</h3>
-            <ul>
-              <li>
-                Debugged and stabilized a broken multi-agent execution graph UI (graph.html) by treating it as a real
-                production incident rather than a toy problem.
-              </li>
-              <li>
-                Built a non-invasive runtime diagnostic layer that instrumented the full render pipeline:
-                <ul>
-                  <li>Run ID resolution</li>
-                  <li>LocalStorage payload selection</li>
-                  <li>JSON parsing &amp; schema validation</li>
-                  <li>Task/agent/link contract verification</li>
-                  <li>DOM layout &amp; viewport sanity checks</li>
-                  <li>Render-stage counts</li>
-                  <li>Camera &amp; transform safety validation</li>
-                  <li>Post-render snapshot confirmation</li>
-                </ul>
-              </li>
-              <li>
-                Added on-demand debug snapshot tooling to allow live inspection of the system without reloads, enabling
-                reproducible diagnosis of rendering and state failures.
-              </li>
-              <li>
-                Implemented visible, user-facing failure modes (error banners, placeholder cards, layout warnings)
-                instead of silent UI collapse — improving observability for non-technical users.
-              </li>
-              <li>
-                Identified and fixed a critical TDZ runtime crash caused by a function being referenced before
-                initialization, restoring full graph rendering without refactoring the system.
-              </li>
-              <li>
-                Demonstrated full-stack reasoning across:
-                <ul>
-                  <li>Data contracts</li>
-                  <li>DOM state</li>
-                  <li>Layout geometry</li>
-                  <li>Render timing</li>
-                  <li>UI behavior</li>
-                  <li>Persistence</li>
-                </ul>
-              </li>
-              <li>
-                Designed the long-term architecture for Replicator as a multi-agent orchestration platform, including:
-                <ul>
-                  <li>Agent recommendation and compatibility analysis</li>
-                  <li>Skill gap detection</li>
-                  <li>Bottleneck identification</li>
-                  <li>Visual execution tracking</li>
-                  <li>Automated and manual agent assignment</li>
-                  <li>Future AI API integration (OpenAI, Claude, Gemini, etc.)</li>
-                </ul>
-              </li>
-              <li>
-                Defined future infrastructure needs:
-                <ul>
-                  <li>Execution state engines</li>
-                  <li>Agent lifecycle models</li>
-                  <li>Async task hooks</li>
-                  <li>Permission sandboxing</li>
-                  <li>Secure credential handling</li>
-                  <li>Scalable persistence</li>
-                </ul>
-              </li>
-              <li>
-                This project demonstrates real debugging discipline, safe instrumentation practices, and product-level
-                thinking, not just feature coding.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>AI Cabin App — Automated Concierge &amp; Smart Reminder Platform</h3>
-            <ul>
-              <li>
-                Designed a concept for an AI-powered concierge and automation system for cabins, hospitality, and
-                short-term stays.
-              </li>
-              <li>
-                The app is intended to:
-                <ul>
-                  <li>Automatically manage guest reminders and requests</li>
-                  <li>Act as a virtual tour guide for nearby activities, shops, and attractions</li>
-                  <li>Provide location-based recommendations</li>
-                  <li>Support staff workflows (housekeeping, maintenance, supplies)</li>
-                  <li>Coordinate housing and occupancy logistics</li>
-                </ul>
-              </li>
-              <li>
-                Focused on creating a system that blends:
-                <ul>
-                  <li>Automation</li>
-                  <li>Scheduling</li>
-                  <li>Context-aware recommendations</li>
-                  <li>Human-in-the-loop workflows</li>
-                </ul>
-              </li>
-              <li>
-                Designed with the same systems-first philosophy:
-                <ul>
-                  <li>Clear task ownership</li>
-                  <li>Transparent state tracking</li>
-                  <li>Failure-tolerant workflows</li>
-                  <li>Non-technical user experience</li>
-                </ul>
-              </li>
-              <li>
-                This project emphasizes product design, automation thinking, and real-world usability, not just UI.
-              </li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Research-Grade Systems Thinking &amp; Technical Communication</h3>
-            <ul>
-              <li>
-                Produced TR3C-style system architectures connecting propulsion, electromagnetics, control, materials, and
-                diagnostics into coherent, testable engineering proposals.
-              </li>
-              <li>
-                Authored research-grade rebuttals that integrate concepts from plasma physics, electromagnetics,
-                metamaterials, control theory, and systems engineering.
-              </li>
-              <li>
-                Designed test matrices and measurement plans specifying what data would be required to validate or
-                falsify claims (e.g., field strengths, Q-factors, thrust-to-power ratios, latency bounds, failure
-                thresholds).
-              </li>
-              <li>
-                Demonstrated working knowledge of electric propulsion families (Hall, pulsed, MPD-class concepts),
-                including their control, diagnostics, and power-system implications at the system level.
-              </li>
-              <li>
-                Applied control and autonomy principles including PID fallback logic, filtering concepts (Kalman/particle
-                awareness), and latency-aware design for real-time systems.
-              </li>
-              <li>
-                Integrated AI-for-physical-systems concepts such as system identification, hybrid physics-ML modeling,
-                and edge-inference constraints into architectural discussions.
-              </li>
-              <li>
-                Demonstrated awareness of embedded boundaries, including PWM signaling, watchdog hardware, ESC behavior,
-                MCU offload patterns, and hardware-dominant safety chains.
-              </li>
-              <li>
-                Built systems with replayability as a first-class feature, enabling fault injection, time-dilated
-                simulation, and reproducible debugging.
-              </li>
-              <li>
-                Consistently document assumptions, safety guarantees, and failure modes, rather than hiding them — a
-                practice aligned with professional safety and systems engineering.
-              </li>
-            </ul>
-          </article>
-        </section>
-      </div>
-    </main>
-
-    <div id="site-footer"></div>
-    <script src="./assets/js/script.js" defer></script>
+    <div class="container">
+      <h1 class="glow">FINAL TRANSMISSION: FROM NOISE TO SIGNAL</h1>
+      <p>Alright.</p>
+      <p>I’ve said what I needed to say. Maybe too much. Maybe not enough. Either way — it’s out now.</p>
+      <p>
+        These essays, documents, and transmissions weren’t just ideas. They were frequencies I’ve carried for years.
+        Pressure points. Loops. Glitches in the signal.
+      </p>
+      <p>And now?</p>
+      <p>They’re released.<br />Named. Aired. Grounded.</p>
+      <p>The signal is clean. The loop is closed.</p>
+      <p>So what now?</p>
+      <p>
+        Now, I build.<br />
+        Not another argument.<br />
+        Not another poetic system breakdown.<br />
+        Not another carefully measured dose of existential clarity.
+      </p>
+      <p>
+        <strong>I build a life.</strong><br />
+        The one I want — not the one I was defaulted into.<br />
+        Because I have the tools. The insight. The pattern literacy. And yeah, the drive to carry it all the way.
+      </p>
+      <p>This isn’t retreat.<br />It’s application.</p>
+      <p>I’m going where it’s quiet enough to think, and real enough to build.</p>
+      <p>If you’ve been here — thank you. If you’ve felt even a single sentence of this resonate in your spine, you already know:</p>
+      <p>This was never about being clever.</p>
+      <p>It was about naming the system, stepping off the road, and choosing to walk under your own momentum.</p>
+      <p>And if I <em>do</em> return?</p>
+      <p>
+        It won’t be because I ran out of things to say.<br />
+        It’ll be because I found new ways to say them —<br />
+        or because I finally built the starship I keep joking about.
+      </p>
+      <p>
+        Either way, I’ve got to go now.<br />
+        Time to do the hard work.<br />
+        The good work.<br />
+        The real work.
+      </p>
+      <p class="glow">Catch you on the other side.</p>
+      <p class="footer">— Me</p>
+    </div>
   </body>
 </html>
